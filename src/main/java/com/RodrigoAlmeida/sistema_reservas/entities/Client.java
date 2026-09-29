@@ -3,6 +3,9 @@ package com.RodrigoAlmeida.sistema_reservas.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import jdk.jfr.Enabled;
 
 @Entity
@@ -10,9 +13,10 @@ public class Client {
     @Id
     @GeneratedValue
     private Long id;
+    @NotBlank @Size(min = 3)
     private String name;
-    private String email;
-    private String phone;
+    @Email @NotBlank private String email;
+    @NotBlank private String phone;
     private String role;
 
     public Client() {
