@@ -14,7 +14,7 @@ public class ClientService {
 
     public Client save(Client client){
         if (clientRepository.existsByEmail(client.getEmail())){
-            throw new DuplicateEmailException("E-mail já cadastrado: "+ client.getEmail());
+            throw new DuplicateEmailException("Email already registered: "+ client.getEmail());
         }
         return clientRepository.save(client);
     }

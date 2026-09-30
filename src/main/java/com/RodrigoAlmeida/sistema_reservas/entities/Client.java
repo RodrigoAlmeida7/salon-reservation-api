@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import jdk.jfr.Enabled;
 
@@ -16,6 +17,7 @@ public class Client {
     @NotBlank @Size(min = 3)
     private String name;
     @Email @NotBlank private String email;
+    @Pattern(regexp = "\\d{11}", message = "The phone number must contain exactly 11 numeric digits.")
     @NotBlank private String phone;
     private String role;
 
