@@ -1,4 +1,4 @@
-package com.RodrigoAlmeida.sistema_reservas.ClientControllers;
+package com.RodrigoAlmeida.sistema_reservas.Controllers;
 
 import com.RodrigoAlmeida.sistema_reservas.entities.Client;
 import com.RodrigoAlmeida.sistema_reservas.services.ClientService;
