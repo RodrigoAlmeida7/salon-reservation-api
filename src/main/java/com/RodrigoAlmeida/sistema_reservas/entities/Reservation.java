@@ -2,6 +2,7 @@ package com.RodrigoAlmeida.sistema_reservas.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -15,7 +16,9 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull private LocalDate date;
+    @FutureOrPresent(message = "A data da reserva não pode ser no passado")
+    @NotNull(message = "A data da reserva é obrigatória")
+    private LocalDate date;
     @NotNull @Positive BigDecimal chargedValue;
     @ManyToOne
     @JoinColumn(name = "client_id")
